@@ -1,4 +1,5 @@
 const striptags = require('striptags')
+const log = require('./log')
 
 let joinedRoomsCache = []
 
@@ -32,7 +33,7 @@ const client = {
                     roomRetryInfo[roomId].retryCount = 0;
                 }
             } catch (ex) {
-                console.warn(`Could not join room ${roomId} - ${ex}`)
+                log.warn(`Could not join room ${roomId} - ${ex}`)
                 roomRetryInfo[roomId].retryCount++;
             }
         }
