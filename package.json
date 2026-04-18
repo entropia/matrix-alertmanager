@@ -32,7 +32,7 @@
     "sinon": "^21.0.0"
   },
   "dependencies": {
-    "dotenv": "^16.4.5",
+    "dotenv": "^17.0.0",
     "express": "^4.22.1",
     "matrix-js-sdk": "^41.0.0",
     "striptags": "^3.2.0"
