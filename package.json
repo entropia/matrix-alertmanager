@@ -29,7 +29,7 @@
     "mocha": "^10.7.3",
     "nodemon": "^3.1.4",
     "npm-check-updates": "^17.1.1",
-    "sinon": "^19.0.2"
+    "sinon": "^21.0.0"
   },
   "dependencies": {
     "dotenv": "^16.4.5",
