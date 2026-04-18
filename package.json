@@ -24,7 +24,7 @@
   "author": "Jason Robinson",
   "license": "MIT",
   "devDependencies": {
-    "chai": "<5",
+    "chai": "<7",
     "eslint": "^9.10.0",
     "mocha": "^11.0.0",
     "nodemon": "^3.1.4",
