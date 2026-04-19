@@ -57,7 +57,7 @@ const utils = {
         // name and location of occurrence
         if (data.labels.alertname !== undefined) {
             if ( process.env.APP_ALERTMANAGER_URL !== undefined ) {
-                parts.push('<a href=\"'+process.env.APP_ALERTMANAGER_URL+'\"><i>', data.labels.alertname, '</i></a>')
+                parts.push('<a href=\''+process.env.APP_ALERTMANAGER_URL+'\'><i>', data.labels.alertname, '</i></a>')
             } else {
                 parts.push('<i>', data.labels.alertname, '</i>')
             }
@@ -127,12 +127,12 @@ const utils = {
                     url = url.replace(/{annotations\.([^}]+)}/g, (match, annotationName) => {
                         return encodeURIComponent(data.annotations[annotationName] || '')
                     })
-                    parts.push('<br><a href="', url, '">', name, '</a>')
+                    parts.push('<br><a href=\'', url, '\'>', name, '</a>')
                 }
             }
         } else {
             // Fallback to the original message if no custom links configured
-            parts.push('<br><a href="', data.generatorURL,'">Alert link</a>')
+            parts.push('<br><a href=\'', data.generatorURL,'\'>Alert link</a>')
         }
 
         return parts.join(' ')
