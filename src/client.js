@@ -25,8 +25,9 @@ const client = {
 
         roomRetryInfo[roomId].lastAttempt = currentTime;
 
-        if (joinedRoomsCache.indexOf(roomId === -1)) {
+        if (!joinedRoomsCache.includes(roomId)) {
             try {
+                log.info(`Joining room ${roomId}`)
                 const room = await client.connection.joinRoom(roomId)
                 if (room) {
                     joinedRoomsCache.push(room.roomId)
@@ -56,7 +57,11 @@ const client = {
             const i = roomConfig.lastIndexOf('/')
             const room = roomConfig.slice(i+1)
             if (joinedRooms.indexOf(room) === -1) {
+                log.info(`Joining room ${room}`)
                 await this.ensureInRoom(room)
+            } else {
+                log.info(`Already in room ${room}`)
+                joinedRoomsCache.push(room)
             }
         })
     },
