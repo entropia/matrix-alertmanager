@@ -56,11 +56,7 @@ const utils = {
 
         // name and location of occurrence
         if (data.labels.alertname !== undefined) {
-            if ( process.env.APP_ALERTMANAGER_URL !== undefined ) {
-                parts.push('<a href=\''+process.env.APP_ALERTMANAGER_URL+'\'><i>', data.labels.alertname, '</i></a>')
-            } else {
-                parts.push('<i>', data.labels.alertname, '</i>')
-            }
+            parts.push('<i>', data.labels.alertname, '</i>')
             if (data.labels.host !== undefined || data.labels.hostname !== undefined || data.labels.instance !== undefined) {
                 parts.push(' on ')
             }
@@ -97,6 +93,7 @@ const utils = {
         // Add custom links if configured
         if (process.env.ALERT_LINKS) {
             const linkConfigs = process.env.ALERT_LINKS.split('|')
+            parts.push('<br><br>')
             for (let linkConfig of linkConfigs) {
                 const firstColonIndex = linkConfig.indexOf(':')
                 if (firstColonIndex === -1) {
@@ -127,7 +124,7 @@ const utils = {
                     url = url.replace(/{annotations\.([^}]+)}/g, (match, annotationName) => {
                         return encodeURIComponent(data.annotations[annotationName] || '')
                     })
-                    parts.push('<br><a href=\'', url, '\'>', name, '</a>')
+                    parts.push('<a href=\'', url, '\'>', name, '</a>&nbsp;')
                 }
             }
         } else {
