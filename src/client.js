@@ -53,7 +53,7 @@ const client = {
         const rooms = await this.connection.getJoinedRooms()
         const joinedRooms = rooms.joined_rooms
         const roomConfigs = process.env.MATRIX_ROOMS.split('|')
-        roomConfigs.forEach(async roomConfig => {
+        for (const roomConfig of roomConfigs) {
             const i = roomConfig.lastIndexOf('/')
             const room = roomConfig.slice(i+1)
             if (joinedRooms.indexOf(room) === -1) {
@@ -63,7 +63,7 @@ const client = {
                 log.info(`Already in room ${room}`)
                 joinedRoomsCache.push(room)
             }
-        })
+        }
     },
     sendAlert: async function(roomId, alert) {
         await this.ensureInRoom(roomId)
