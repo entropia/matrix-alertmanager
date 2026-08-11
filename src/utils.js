@@ -39,6 +39,8 @@ const utils = {
                     return '#ffc107'; // orange
                   case 'none':
                     return '#17a2b8'; // blue
+                  case 'info':
+                    return '#17a2b8'; // blue
                   default:
                     return '#dc3545'; // red
                 }
